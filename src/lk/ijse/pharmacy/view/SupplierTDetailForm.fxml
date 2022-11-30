@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.SupplierTDetailFormController">
+   <children>
+      <AnchorPane fx:id="pane" prefHeight="118.0" prefWidth="1378.0" style="-fx-background-color: #dfe6e9;">
+         <children>
+            <JFXButton fx:id="btnBack" layoutX="23.0" layoutY="18.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="78.0" style="-fx-background-color: #b2bec3; -fx-background-radius: 20px;" text="Back">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <Text layoutX="399.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Transaction Details">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnBack" layoutX="23.0" layoutY="18.0" onAction="#backOnAction" prefHeight="36.0" prefWidth="78.0" style="-fx-background-color: #b2bec3; -fx-background-radius: 20px;" text="Back">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="64.0" layoutY="174.0" text="ST id : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="174.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="810.0" layoutY="174.0" text="Date :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="903.0" layoutY="174.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1159.0" layoutY="174.0" text="Time :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1219.0" layoutY="174.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="238.0" text="Supplier id : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="179.0" layoutY="238.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="343.0" layoutY="239.0" style="-fx-background-color: #487eb0;" text="Search Customer" textFill="WHITE" />
+      <Label layoutX="436.0" layoutY="174.0" text="Cashier id : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="529.0" layoutY="174.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="460.0" layoutY="239.0" style="-fx-background-color: #4cd137;" text="Add Customer" textFill="WHITE" />
+      <Label layoutX="64.0" layoutY="300.0" text="Code :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="300.0" text="Description :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="556.0" layoutY="301.0" text="Unit price :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="782.0" layoutY="301.0" text="Qty On Hand :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1024.0" layoutY="301.0" text="Quantity :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

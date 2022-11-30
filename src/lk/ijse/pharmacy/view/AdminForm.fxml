@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.AdminFormController">
+   <children>
+      <AnchorPane prefHeight="770.0" prefWidth="1366.0" style="-fx-background-color: #485460;" />
+      <AnchorPane layoutX="384.0" layoutY="111.0" prefHeight="561.0" prefWidth="616.0" style="-fx-background-color: #38ada9; -fx-background-radius: 20px;">
+         <children>
+            <Text fill="WHITE" layoutX="214.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back !">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign into your account.">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <JFXButton fx:id="btnSignin" layoutX="234.0" layoutY="443.0" onAction="#LoginOnAction" prefHeight="44.0" prefWidth="182.0" style="-fx-background-radius: 20px; -fx-background-color: #b2bec3;" text="Sign in " textFill="#3c3c3c">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXRadioButton fx:id="radioAdmin" layoutX="87.0" layoutY="177.0" onAction="#AdminOnAction" prefHeight="30.0" prefWidth="190.0" text="Admin Account" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="radioCashier" layoutX="350.0" layoutY="177.0" onAction="#CashierOnAction" prefHeight="30.0" prefWidth="190.0" text="Cashier Account" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXRadioButton>
+            <JFXButton fx:id="btnCreateCashier" layoutX="94.0" layoutY="372.0" onAction="#CreateCasherOnAction" prefHeight="25.0" prefWidth="134.0" text="create cashier account" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="btnPassword" layoutX="429.0" layoutY="372.0" onAction="#changepasswordOnAction" prefHeight="25.0" prefWidth="112.0" text="change password" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <ImageView fitHeight="16.0" fitWidth="15.0" layoutX="84.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/person_add_FILL0_wght400_GRAD0_opsz48.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="txtUserName" layoutX="60.0" layoutY="247.0" prefHeight="25.0" prefWidth="512.0" promptText="User name" unFocusColor="WHITE" />
+            <JFXTextField fx:id="txtPassword" layoutX="61.0" layoutY="311.0" prefHeight="25.0" prefWidth="512.0" promptText="Password" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="421.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/lock_reset.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="465.0" fitWidth="446.0" layoutX="-55.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pills-bottle.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

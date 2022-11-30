@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.SupplierFormController">
+   <children>
+      <AnchorPane layoutY="8.0" prefHeight="770.0" prefWidth="1008.0" />
+      <AnchorPane prefHeight="125.0" prefWidth="1008.0" style="-fx-background-color: #dfe6e9;">
+         <children>
+            <Text layoutX="342.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Form">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXComboBox fx:id="cmbAgreement" layoutX="562.0" layoutY="273.0" prefHeight="36.0" prefWidth="387.0" promptText="Select agreement" />
+      <Label layoutX="65.0" layoutY="150.0" text="Supplier id :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSupId" layoutX="65.0" layoutY="181.0" prefHeight="34.0" prefWidth="387.0" promptText="Supplier id" />
+      <Label layoutX="65.0" layoutY="243.0" text="Company Name :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSupComName" layoutX="65.0" layoutY="274.0" prefHeight="34.0" prefWidth="387.0" promptText="Company name" />
+      <Label layoutX="565.0" layoutY="150.0" text="Supplier Name :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSupName" layoutX="565.0" layoutY="181.0" prefHeight="34.0" prefWidth="387.0" promptText="Supplier name" />
+      <Label layoutX="565.0" layoutY="243.0" text="Agreement :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="334.0" text="Supplier Email :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSupEmail" layoutX="64.0" layoutY="365.0" prefHeight="34.0" prefWidth="387.0" promptText="Email" />
+      <Label layoutX="565.0" layoutY="335.0" text="Contact Number :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtNo" layoutX="565.0" layoutY="366.0" prefHeight="34.0" prefWidth="387.0" promptText="Contact number " />
+      <TableView fx:id="tblSupplier" layoutX="57.0" layoutY="490.0" prefHeight="274.0" prefWidth="898.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="95.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="175.33331298828125" text="Name" />
+            <TableColumn fx:id="colComName" prefWidth="205.0" text="Company name" />
+            <TableColumn fx:id="colNo" prefWidth="128.0" text="Agreement" />
+            <TableColumn fx:id="colEmail" prefWidth="154.66668701171875" text="Email" />
+            <TableColumn fx:id="colAgreement" prefWidth="140.33331298828125" text="Contact" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btnSaveSupplier" layoutX="610.0" layoutY="430.0" onAction="#SaveSupplierOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00b894; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnSearchSupplier" layoutX="372.0" layoutY="180.0" onAction="#SearchSupplierOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00cec9; -fx-background-radius: 20px;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdateSupplier" layoutX="721.0" layoutY="430.0" onAction="#UpdateSupplierOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #4a69bd; -fx-background-radius: 20px;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnClearSupplier" layoutX="829.0" layoutY="430.0" onAction="#ClearSupplierOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #d63031; -fx-background-radius: 20px;" text="Clear" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

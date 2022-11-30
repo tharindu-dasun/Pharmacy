@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="cusContext" prefHeight="770.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.CustomerFormController">
+   <children>
+      <AnchorPane prefHeight="770.0" prefWidth="1008.0">
+         <children>
+            <Label layoutX="56.0" layoutY="149.0" text="Customer id :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtCusId" layoutX="56.0" layoutY="180.0" prefHeight="34.0" prefWidth="387.0" promptText="Customer id" />
+            <Label layoutX="56.0" layoutY="256.0" text="Customer Address :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtCusAddress" layoutX="56.0" layoutY="287.0" prefHeight="34.0" prefWidth="387.0" promptText="Customer address" />
+            <Label layoutX="556.0" layoutY="149.0" text="Customer Name :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtCusName" layoutX="556.0" layoutY="180.0" prefHeight="34.0" prefWidth="387.0" promptText="Customer name" />
+            <Label layoutX="556.0" layoutY="256.0" text="Customer NIC :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtNic" layoutX="556.0" layoutY="287.0" prefHeight="34.0" prefWidth="387.0" promptText="NIC" />
+            <Label layoutX="55.0" layoutY="359.0" text="Contact Number :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtContact" layoutX="55.0" layoutY="390.0" prefHeight="34.0" prefWidth="387.0" promptText="Contact number :" />
+            <TableView fx:id="tblCustomer" layoutX="55.0" layoutY="462.0" prefHeight="292.0" prefWidth="898.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="95.0" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="197.66668701171875" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="245.33331298828125" text="Address" />
+                  <TableColumn fx:id="colNic" prefWidth="173.3333740234375" text="Nic" />
+                  <TableColumn fx:id="colContact" prefWidth="189.6666259765625" text="Contact" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="btnSearchCus1" layoutX="361.0" layoutY="178.0" onAction="#SearchCusOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00cec9; -fx-background-radius: 20px;" text="Search" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="125.0" prefWidth="1008.0" style="-fx-background-color: #dfe6e9;">
+         <children>
+            <Text layoutX="336.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Form">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnSaveCus" layoutX="609.0" layoutY="375.0" onAction="#SaveCusOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00b894; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdateCus" layoutX="720.0" layoutY="375.0" onAction="#UpdateCusOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #4a69bd; -fx-background-radius: 20px;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnClearCus" layoutX="828.0" layoutY="375.0" onAction="#ClearCusOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #d63031; -fx-background-radius: 20px;" text="Clear" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

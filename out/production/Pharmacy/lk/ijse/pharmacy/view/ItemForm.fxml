@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.ItemFormController">
+   <children>
+      <AnchorPane prefHeight="770.0" prefWidth="1008.0" />
+      <AnchorPane prefHeight="125.0" prefWidth="1008.0" style="-fx-background-color: #dfe6e9;">
+         <children>
+            <Text layoutX="401.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Form">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXDatePicker fx:id="dpExdate" layoutX="560.0" layoutY="369.0" prefHeight="25.0" prefWidth="395.0" promptText="Select date" />
+      <JFXDatePicker fx:id="dpMdate" layoutX="61.0" layoutY="369.0" prefHeight="25.0" prefWidth="395.0" promptText="Select date" />
+      <Label layoutX="61.0" layoutY="144.0" text="Item Code :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtId" layoutX="61.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Medicine id" />
+      <Label layoutX="61.0" layoutY="241.0" text="Brand :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtBrand" layoutX="61.0" layoutY="272.0" prefHeight="34.0" prefWidth="387.0" promptText="Brand" />
+      <JFXTextField fx:id="txtDes" layoutX="561.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Medicine name" />
+      <Label layoutX="61.0" layoutY="338.0" text="Manufacture Date :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="424.0" text="Quantity :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtQty" layoutX="61.0" layoutY="453.0" prefHeight="34.0" prefWidth="387.0" promptText="Quantity " />
+      <Label layoutX="561.0" layoutY="144.0" text="Description :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="561.0" layoutY="241.0" text="Unit Price :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtPrice" layoutX="561.0" layoutY="272.0" prefHeight="34.0" prefWidth="387.0" promptText="Unit price" />
+      <Label layoutX="561.0" layoutY="336.0" text="Expiry Date :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItem" layoutX="60.0" layoutY="518.0" prefHeight="239.0" prefWidth="891.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="95.0" text="Item Code" />
+            <TableColumn fx:id="colDes" prefWidth="149.33334350585938" text="Description" />
+            <TableColumn fx:id="colBrand" prefWidth="164.0" text="Brand" />
+            <TableColumn fx:id="colPrice" prefWidth="121.33331298828125" text="Unit Price" />
+            <TableColumn fx:id="colMDate" prefWidth="153.0" text="M_Date" />
+            <TableColumn fx:id="colExDate" prefWidth="109.0" text="Ex_Date" />
+            <TableColumn fx:id="colQty" prefWidth="104.0" text="Quantity" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btnSearchItem" layoutX="366.0" layoutY="174.0" onAction="#SearchItemOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00cec9; -fx-background-radius: 20px;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnSaveItem" layoutX="604.0" layoutY="430.0" onAction="#SaveItemOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00b894; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdateItem" layoutX="715.0" layoutY="430.0" onAction="#UpdateItemOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #4a69bd; -fx-background-radius: 20px;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnClearItem" layoutX="823.0" layoutY="430.0" onAction="#ClearItemOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #d63031; -fx-background-radius: 20px;" text="Clear" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.SponsorFormController">
+   <children>
+      <AnchorPane prefHeight="770.0" prefWidth="1008.0" />
+      <AnchorPane prefHeight="125.0" prefWidth="1008.0" style="-fx-background-color: #dfe6e9;">
+         <children>
+            <Text layoutX="342.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sponsor Form">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Label layoutX="60.0" layoutY="153.0" text="Sponsor id :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSpnId" layoutX="60.0" layoutY="184.0" prefHeight="34.0" prefWidth="387.0" promptText="Sponsor id" />
+      <Label layoutX="60.0" layoutY="260.0" text="Sponsor type :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="560.0" layoutY="153.0" text="Sponsor Name :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSpnName" layoutX="560.0" layoutY="184.0" prefHeight="34.0" prefWidth="387.0" promptText="Sponsor name" />
+      <Label layoutX="560.0" layoutY="260.0" text="Discount :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="363.0" text="Sponsor Email :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSpnEmail" layoutX="59.0" layoutY="394.0" prefHeight="34.0" prefWidth="387.0" promptText="Email" />
+      <Label layoutX="560.0" layoutY="364.0" text="Contact Number :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSpnNo" layoutX="560.0" layoutY="395.0" prefHeight="34.0" prefWidth="387.0" promptText="Contact number " />
+      <TableView fx:id="tblSponsor" layoutX="56.0" layoutY="510.0" prefHeight="245.0" prefWidth="898.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="95.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="175.33331298828125" text="Name" />
+            <TableColumn fx:id="colType" prefWidth="205.0" text="Type" />
+            <TableColumn fx:id="colDis" prefWidth="128.0" text="Discount" />
+            <TableColumn fx:id="colEmail" prefWidth="154.66668701171875" text="Email" />
+            <TableColumn fx:id="colNo" prefWidth="140.33331298828125" text="Contact" />
+         </columns>
+      </TableView>
+      <JFXComboBox fx:id="cmbSpnType" layoutX="61.0" layoutY="290.0" prefHeight="36.0" prefWidth="387.0" promptText="Select type">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <JFXTextField fx:id="txtSpnDis" layoutX="559.0" layoutY="292.0" prefHeight="34.0" prefWidth="387.0" promptText="Discount" />
+      <JFXButton fx:id="btnSaveSponsor" layoutX="601.0" layoutY="452.0" onAction="#SaveSponsorOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00b894; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnSearchSponsor" layoutX="367.0" layoutY="182.0" onAction="#SearchSponsorOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00cec9; -fx-background-radius: 20px;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdateSponsor" layoutX="712.0" layoutY="452.0" onAction="#UpdateSponsorOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #4a69bd; -fx-background-radius: 20px;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnClearSponsor" layoutX="820.0" layoutY="452.0" onAction="#ClearSponsorOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #d63031; -fx-background-radius: 20px;" text="Clear" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

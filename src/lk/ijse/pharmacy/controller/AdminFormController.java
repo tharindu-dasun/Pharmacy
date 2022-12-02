@@ -4,11 +4,14 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.pharmacy.model.LoginModel;
 import lk.ijse.pharmacy.util.Navigation;
 import lk.ijse.pharmacy.util.Routes;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AdminFormController {
     public AnchorPane pane;
@@ -20,8 +23,13 @@ public class AdminFormController {
     public JFXTextField txtUserName;
     public JFXTextField txtPassword;
 
-    public void LoginOnAction(ActionEvent actionEvent) throws IOException {
-        Navigation.navigate(Routes.DASHBOARD,pane);
+    public void LoginOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
+
+        if(LoginModel.userCheck(txtUserName.getText() , txtPassword.getText())) {
+            Navigation.navigate(Routes.DASHBOARD,pane);
+        }   else {
+            new Alert(Alert.AlertType.WARNING, "Login Fail").show();
+        }
     }
 
     public void AdminOnAction(ActionEvent actionEvent) {

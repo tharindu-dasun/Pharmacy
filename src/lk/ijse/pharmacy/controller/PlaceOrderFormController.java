@@ -1,5 +1,6 @@
 package lk.ijse.pharmacy.controller;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 import com.jfoenix.controls.JFXButton;
@@ -11,10 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.pharmacy.model.CusOrderModel;
-import lk.ijse.pharmacy.model.CustomerModel;
-import lk.ijse.pharmacy.model.ItemModel;
-import lk.ijse.pharmacy.model.MedicineModel;
+import lk.ijse.pharmacy.model.*;
 import lk.ijse.pharmacy.to.*;
 import lk.ijse.pharmacy.util.Navigation;
 import lk.ijse.pharmacy.util.Routes;
@@ -22,8 +20,6 @@ import lk.ijse.pharmacy.util.Routes;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 public class PlaceOrderFormController {
     public JFXButton btnBack;
@@ -64,6 +60,8 @@ public class PlaceOrderFormController {
 
     public void initialize() throws SQLException, ClassNotFoundException {
         loadItemCode();
+        loadEmpList();
+        loadSpnList();
         txtOrderId.setText(CusOrderModel.getNewOrderID());
 
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -73,15 +71,6 @@ public class PlaceOrderFormController {
         colMdate.setCellValueFactory(new PropertyValueFactory<>("M_date"));
         colExDate.setCellValueFactory(new PropertyValueFactory<>("Ex_date"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-//
-//        try {
-//            setTblItem();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
     }
 
     public void backOnAction(ActionEvent actionEvent) throws IOException {
@@ -116,9 +105,17 @@ public class PlaceOrderFormController {
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String order_id = txtOrderId.getText();
-        String sponsor_id = "SP002";//txtSpnId.getText();
-        String employee_id = "E003";//txtCashierIdd.getText();
-        String customer_id = "C001";//txtCusId.getText();
+        Object cmbSpnIdValue = cmbSpnId.getValue();
+        String sponsor_id = null;
+        if (cmbSpnIdValue!=null) {
+            sponsor_id = cmbSpnIdValue.toString();
+        }
+        String employee_id = txtCashierIdd.getText();
+        Object cmbCusIdValue = cmbCusId.getValue();
+        String customer_id = null;
+        if (cmbCusIdValue!=null) {
+            customer_id = cmbCusIdValue.toString();
+        }
         String date = LocalDate.now().toString();
 
         ObservableList<OrderTable> items = tblOrderCart.getItems();
@@ -154,23 +151,6 @@ public class PlaceOrderFormController {
     }
 
 
-//    private void setTblOrderCart() throws SQLException,ClassNotFoundException {
-//        tblOrderCart.getItems().clear();
-//        ArrayList<CusOrder> cusOrders = null;
-//        try {
-//            cusOrders = CusOrderModel.getList();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//        ObservableList<CusOrder> observableArrayList = tblOrderCart.getItems();
-//        for (CusOrder c : cusOrders) {
-//            observableArrayList.add(c);
-//            tblOrderCart.setItems(observableArrayList);
-//        }
-//    }
-
     public void SearchOnAction(ActionEvent actionEvent) {
         String customer_id = txtCusId.getText();
         try {
@@ -203,8 +183,13 @@ public class PlaceOrderFormController {
         orderTableRow.setTotal(rowTotal);
         total += rowTotal;
         txtTotalAmount.setText(Double.toString(total));
-        Double discout = 0.05;
-        txtNetAmount.setText(Double.toString(total*(1-discout)));
+        Object cmbSpnIdValue = cmbSpnId.getValue();
+        DecimalFormat f = new DecimalFormat("##.00");
+        Double discount = 0.00;
+        if (cmbSpnIdValue != null) {
+            discount = Double.parseDouble(SponsorModel.search(cmbSpnIdValue.toString()).getDiscount_percentage())/100;
+        }
+        txtNetAmount.setText((Double.toString(Double.parseDouble(f.format(total*(1-discount))))));
         items.add(orderTableRow);
         ObservableList<OrderTable> observableArrayList = tblOrderCart.getItems();
         for (OrderTable i : items) {
@@ -229,7 +214,28 @@ public class PlaceOrderFormController {
 
     }
 
-    public void cmbCashOnAction(ActionEvent actionEvent) {
+    public void cmbCashOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+    }
+
+    public void loadEmpList() throws SQLException, ClassNotFoundException {
+        ArrayList<Employee> itemIdList = EmployeeModel.getList();
+
+        ObservableList observableList = FXCollections.observableArrayList();
+        for (Employee s : itemIdList) {
+            observableList.add(s.getEmployee_id());
+            cmbCashId.setItems(observableList);
+        }
+    }
+
+    public void loadSpnList() throws SQLException, ClassNotFoundException {
+        ArrayList<Sponsor> itemIdList = SponsorModel.getList();
+
+        ObservableList observableList = FXCollections.observableArrayList();
+        for (Sponsor s : itemIdList) {
+            observableList.add(s.getSponsor_id());
+            cmbSpnId.setItems(observableList);
+        }
     }
 
     public void cmbSpnOnAction(ActionEvent actionEvent) {

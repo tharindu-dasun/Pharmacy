@@ -12,7 +12,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.pharmacy.model.CustomerModel;
+import lk.ijse.pharmacy.model.EmployeeModel;
 import lk.ijse.pharmacy.to.Customer;
+import lk.ijse.pharmacy.to.Employee;
 import lk.ijse.pharmacy.util.Navigation;
 import lk.ijse.pharmacy.util.Routes;
 
@@ -85,9 +87,30 @@ public class CustomerFormController {
     }
 
     public void ClearCusOnAction(ActionEvent actionEvent) {
+        txtCusId.setText("");
+        txtCusName.setText("");
+        txtCusAddress.setText("");
+        txtContact.setText("");
+        txtNic.setText("");
     }
 
     public void SearchCusOnAction(ActionEvent actionEvent) {
+        String customer_id = txtCusId.getText();
+        try {
+            Customer customer = CustomerModel.search(customer_id);
+            if (customer != null) {
+                txtCusName.setText(customer.getName());
+                txtCusAddress.setText(customer.getAddress());
+                txtContact.setText(Integer.toString(customer.getContact_no()));
+                txtNic.setText(customer.getNic());
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Search Fail").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void backOnAction(ActionEvent actionEvent) throws IOException {
@@ -95,5 +118,25 @@ public class CustomerFormController {
     }
 
     public void UpdateCusOnAction(ActionEvent actionEvent) {
+        String customer_id = txtCusId.getText();
+        String name = txtCusName.getText();
+        String address = txtCusAddress.getText();
+        int contact_no = Integer.parseInt(txtContact.getText());
+        String nic = txtNic.getText();
+
+        Customer customer = new Customer(customer_id, name, address, contact_no, nic);
+        try {
+            boolean add = CustomerModel.update(customer);
+            if (add) {
+                new Alert(Alert.AlertType.INFORMATION, "Update Success").show();
+                setTblCustomer();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Update Fail").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

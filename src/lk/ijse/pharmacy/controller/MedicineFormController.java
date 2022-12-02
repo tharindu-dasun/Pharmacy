@@ -28,6 +28,7 @@ public class MedicineFormController {
     public JFXButton btnSaveMedi;
     public JFXButton btnClearMedi;
     public TableView <Medicines>tblMedicine;
+
     public JFXButton btnBack;
     public JFXButton btnUpdateMedi;
     public JFXTextField txtMediId;
@@ -119,7 +120,7 @@ public class MedicineFormController {
     }
 
     private void setTblMedicines() throws SQLException, ClassNotFoundException {
-        tblMedicine.getItems().clear();
+            tblMedicine.getItems().clear();
         ArrayList<Medicines> medicines = MedicineModel.getList();
         ObservableList<Medicines> observableArrayList = tblMedicine.getItems();
         for (Medicines m : medicines ) {

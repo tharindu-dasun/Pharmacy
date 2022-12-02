@@ -50,4 +50,8 @@ public class DashboardFormController {
     public void btnDashOnAction(ActionEvent actionEvent) throws IOException {
         Navigation.navigate(Routes.DASHBOARD,pane);
     }
+
+    public void btnPlaceSupplierOrder(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.SUPPLIER_ORDER,pane);
+    }
 }

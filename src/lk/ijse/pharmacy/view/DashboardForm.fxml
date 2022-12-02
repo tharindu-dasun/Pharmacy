@@ -93,7 +93,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="392.0" layoutY="213.0" prefHeight="169.0" prefWidth="576.0" style="-fx-background-radius: 20px; -fx-background-color: #38ada9;" text="Supplier Transaction Details" textFill="WHITE">
+            <JFXButton layoutX="392.0" layoutY="213.0" onAction="#btnPlaceSupplierOrder" prefHeight="169.0" prefWidth="576.0" style="-fx-background-radius: 20px; -fx-background-color: #38ada9;" text="Place Supplier Order" textFill="WHITE">
                <font>
                   <Font size="37.0" />
                </font>

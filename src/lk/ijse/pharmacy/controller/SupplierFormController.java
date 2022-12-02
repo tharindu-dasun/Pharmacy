@@ -144,9 +144,9 @@ public class SupplierFormController {
         colId.setCellValueFactory(new PropertyValueFactory<>("supplier_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colComName.setCellValueFactory(new PropertyValueFactory<>("company"));
-        colNo.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+        colAgreement.setCellValueFactory(new PropertyValueFactory<>("Agreement"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        colNo.setCellValueFactory(new PropertyValueFactory<>("Agreement"));
+        colNo.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
         try {
             setTblSupplier();
         } catch (SQLException e) {
@@ -157,7 +157,7 @@ public class SupplierFormController {
     }
 
     private void LoadAgreement() {
-        ArrayList<String> agreementList = new ArrayList<>();//EmployeeModel.loadRole();
+        ArrayList<String> agreementList = new ArrayList<>();
         agreementList.add("3 Months");
         agreementList.add("6 Months");
         agreementList.add("Full Payment");

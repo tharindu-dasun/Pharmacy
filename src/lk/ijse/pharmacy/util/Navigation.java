@@ -82,6 +82,11 @@ public class Navigation {
                 initUI("ChangePasswordForm.fxml");
                 break;
 
+            case SUPPLIER_ORDER:
+                window.setTitle("LOARD SUPPLIERTD FORM");
+                initUI("SupplierTDetailForm.fxml");
+                break;
+
             default:
                 new Alert(Alert.AlertType.ERROR, "UI Not Found!").show();
         }

@@ -70,10 +70,10 @@
             <TableColumn fx:id="colId" prefWidth="95.0" text="Item Code" />
             <TableColumn fx:id="colDes" prefWidth="149.33334350585938" text="Description" />
             <TableColumn fx:id="colBrand" prefWidth="164.0" text="Brand" />
-            <TableColumn fx:id="colPrice" prefWidth="121.33331298828125" text="Unit Price" />
-            <TableColumn fx:id="colMDate" prefWidth="153.0" text="M_Date" />
-            <TableColumn fx:id="colExDate" prefWidth="109.0" text="Ex_Date" />
-            <TableColumn fx:id="colQty" prefWidth="104.0" text="Quantity" />
+            <TableColumn fx:id="colMDate" prefWidth="121.33331298828125" text="M_Date" />
+            <TableColumn fx:id="colExDate" prefWidth="153.0" text="Ex_Date" />
+            <TableColumn fx:id="colQty" prefWidth="109.0" text="Quantity" />
+            <TableColumn fx:id="colPrice" prefWidth="104.0" text="Unit Price" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnSearchItem" layoutX="366.0" layoutY="174.0" onAction="#SearchItemOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00cec9; -fx-background-radius: 20px;" text="Search" textFill="WHITE">

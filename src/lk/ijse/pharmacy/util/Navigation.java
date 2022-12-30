@@ -87,6 +87,16 @@ public class Navigation {
                 initUI("SupplierTDetailForm.fxml");
                 break;
 
+            case ORDER_HISTORY:
+                window.setTitle("LOARD ORDER_HISTORY FORM");
+                initUI("OrderHistory.fxml");
+                break;
+
+            case SUPPLIER_ORDER_HISTORY:
+                window.setTitle("LOARD SUPPLIER_ORDER_HISTORY FORM");
+                initUI("SupplierOrderHistoryForm.fxml");
+                break;
+
             default:
                 new Alert(Alert.AlertType.ERROR, "UI Not Found!").show();
         }

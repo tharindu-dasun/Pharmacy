@@ -90,9 +90,12 @@ public class MedicineFormController {
 
         Medicines medicines = new Medicines(medi_code,name,brand,M_Date,Ex_Date,quantity,unit_price);
         try {
-            boolean isAdd= MedicineModel.save(medicines);
-            if (isAdd){
-                new Alert(Alert.AlertType.CONFIRMATION,"Added");
+            boolean add = MedicineModel.save(medicines);
+            if (add) {
+                new Alert(Alert.AlertType.INFORMATION, "Added Success").show();
+                setTblMedicines();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Added Fail").show();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

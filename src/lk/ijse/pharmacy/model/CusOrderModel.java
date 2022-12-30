@@ -27,6 +27,16 @@ public class CusOrderModel {
         return "O001";
     }
 
+    public static boolean save_orderDetails(String order_id , String code , String sponsor_id , String employee_id , int unit_price , int quantity) throws SQLException, ClassNotFoundException {
+        return CrudUtil.execute("INSERT INTO order_details VALUES(? , ? , ? , ? , ? , ?)",
+                order_id,
+                code,
+                sponsor_id,
+                employee_id,
+                unit_price,
+                quantity
+        );
+    }
     public static boolean save_orderGoods(String order_id, String customer_id, String date) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("INSERT INTO order_goods VALUES(? , ? , ? )",
                 order_id,
@@ -57,6 +67,11 @@ public class CusOrderModel {
         }
         return new Item();
 
+    }
+
+    public static void updateItemTbl(String code, int qty) throws SQLException, ClassNotFoundException {
+
+        boolean rst = CrudUtil.execute("UPDATE item SET quantity = ? WHERE item_code = ?", search(code).getQuantity() - qty , code);
     }
 
 

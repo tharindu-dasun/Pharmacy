@@ -29,10 +29,10 @@ public class ItemFormController {
     public JFXButton btnSearchItem;
     public JFXButton btnBack;
     public JFXButton btnUpdateItem;
-    public TableColumn ColId;
+    public TableColumn colId;
     public TableColumn colDes;
     public TableColumn colBrand;
-    public TableColumn colMdate;
+    public TableColumn colMDate;
     public TableColumn colExDate;
     public TableColumn colQty;
     public TableColumn colPrice;
@@ -43,8 +43,7 @@ public class ItemFormController {
     public JFXTextField txtId;
     public JFXDatePicker dpMdate;
     public JFXDatePicker dpExdate;
-    public TableColumn colId;
-    public TableColumn colMDate;
+    public TableColumn colMdate;
 
     public void SaveItemOnAction(ActionEvent actionEvent) {
         String item_code = txtId.getText();
@@ -57,9 +56,12 @@ public class ItemFormController {
 
         Item item = new Item(item_code,description,brand,M_Date,Ex_Date,quantity,unit_price);
         try {
-            boolean isAdd= ItemModel.save(item);
-            if (isAdd){
-                new Alert(Alert.AlertType.CONFIRMATION,"Added");
+            boolean add = ItemModel.save(item);
+            if (add) {
+                new Alert(Alert.AlertType.INFORMATION, "Added Success").show();
+                setTblItem();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Added Fail").show();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -69,6 +71,7 @@ public class ItemFormController {
     }
 
     private void setTblItem() throws SQLException, ClassNotFoundException {
+        tblItem.getItems().clear();
         ArrayList<Item> items = ItemModel.getList();
         ObservableList<Item> observableArrayList = tblItem.getItems();
         for (Item i : items ) {
@@ -81,7 +84,7 @@ public class ItemFormController {
         colId.setCellValueFactory(new PropertyValueFactory<>("item_code"));
         colDes.setCellValueFactory(new PropertyValueFactory<>("description"));
         colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-        colMDate.setCellValueFactory(new PropertyValueFactory<>("M_Date"));
+        colMdate.setCellValueFactory(new PropertyValueFactory<>("M_Date"));
         colExDate.setCellValueFactory(new PropertyValueFactory<>("Ex_Date"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
@@ -112,15 +115,15 @@ public class ItemFormController {
             if (item != null) {
                 txtDes.setText(item.getDescription());
                 txtBrand.setText(item.getBrand());
-                String mDate = item.getM_date();
-                int m_year = Integer.parseInt(item.getM_date().split("-")[0]);
-                int m_month = Integer.parseInt(item.getM_date().split("-")[1]);
-                int m_date = Integer.parseInt(item.getM_date().split("-")[2]);
+                String mDate = item.getM_Date();
+                int m_year = Integer.parseInt(item.getM_Date().split("-")[0]);
+                int m_month = Integer.parseInt(item.getM_Date().split("-")[1]);
+                int m_date = Integer.parseInt(item.getM_Date().split("-")[2]);
                 dpMdate.setValue(LocalDate.of(m_year, m_month, m_date));
-                String eDate = item.getEx_Date();
-                int e_year = Integer.parseInt(item.getEx_Date().split("-")[0]);
-                int e_month = Integer.parseInt(item.getEx_Date().split("-")[1]);
-                int e_date = Integer.parseInt(item.getEx_Date().split("-")[2]);
+                String eDate = item.getM_Date();
+                int e_year = Integer.parseInt(item.getM_Date().split("-")[0]);
+                int e_month = Integer.parseInt(item.getM_Date().split("-")[1]);
+                int e_date = Integer.parseInt(item.getM_Date().split("-")[2]);
                 dpExdate.setValue(LocalDate.of(e_year, e_month, e_date));
                 txtQty.setText(Integer.toString(item.getQuantity()));
                 txtPrice.setText(Integer.toString(item.getUnit_price()));
@@ -146,9 +149,9 @@ public class ItemFormController {
         int quantity = Integer.parseInt(txtQty.getText());
         int unit_price  = Integer.parseInt(txtPrice.getText());
 
-        Medicines medicines = new Medicines(item_code,description,brand,M_Date,Ex_Date,quantity,unit_price);
+        Item item = new Item(item_code,description,brand,M_Date,Ex_Date,quantity,unit_price);
         try {
-            boolean add = MedicineModel.update(medicines);
+            boolean add = ItemModel.update(item);
             if (add) {
                 new Alert(Alert.AlertType.INFORMATION, "Update Success").show();
                 setTblItem();

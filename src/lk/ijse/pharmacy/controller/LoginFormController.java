@@ -39,7 +39,7 @@ public class LoginFormController {
     public void LoginOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
         if(LoginModel.userCheck(txtUserName.getText() , txtPassword.getText())) {
             Navigation.navigate(Routes.DASHBOARD, pane);
-        }   else {
+        }else{
             new Alert(Alert.AlertType.WARNING, "Login Fail").show();
         }
     }

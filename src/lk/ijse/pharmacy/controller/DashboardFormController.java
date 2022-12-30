@@ -54,4 +54,12 @@ public class DashboardFormController {
     public void btnPlaceSupplierOrder(ActionEvent actionEvent) throws IOException {
         Navigation.navigate(Routes.SUPPLIER_ORDER,pane);
     }
+
+    public void btnViewOrderHistoryOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.ORDER_HISTORY,context);
+    }
+
+    public void btnViewSupplierOrderHistoryOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.SUPPLIER_ORDER_HISTORY,context);
+    }
 }

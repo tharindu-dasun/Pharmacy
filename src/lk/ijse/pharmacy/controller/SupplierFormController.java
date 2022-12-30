@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.pharmacy.model.CustomerModel;
 import lk.ijse.pharmacy.model.SupplierModel;
 import lk.ijse.pharmacy.to.Supplier;
 
@@ -60,7 +61,8 @@ public class SupplierFormController {
                 setTblSupplier();
             }else {
                 new Alert(Alert.AlertType.WARNING,"Added Fail").show();
-            }        } catch (SQLException e) {
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -123,14 +125,16 @@ public class SupplierFormController {
                 return null;
             }
         };
+
         try {
-            boolean add= SupplierModel.update(supplier);
-            if (add){
-                new Alert(Alert.AlertType.INFORMATION,"Update Success").show();
+            boolean add = SupplierModel.update(supplier);
+            if (add) {
+                new Alert(Alert.AlertType.INFORMATION, "Update Success").show();
                 setTblSupplier();
-            }else {
-                new Alert(Alert.AlertType.WARNING,"Update Fail").show();
-            }        } catch (SQLException e) {
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Update Fail").show();
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

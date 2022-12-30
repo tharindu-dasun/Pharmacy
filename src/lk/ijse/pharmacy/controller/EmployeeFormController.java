@@ -57,6 +57,7 @@ public class EmployeeFormController {
             boolean add = EmployeeModel.save(employee);
             if (add) {
                 new Alert(Alert.AlertType.INFORMATION, "Added Success").show();
+                setTblEmployee();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Added Fail").show();
             }

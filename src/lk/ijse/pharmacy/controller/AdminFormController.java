@@ -27,7 +27,7 @@ public class AdminFormController {
 
         if(LoginModel.userCheck(txtUserName.getText() , txtPassword.getText())) {
             Navigation.navigate(Routes.DASHBOARD,pane);
-        }   else {
+        }else{
             new Alert(Alert.AlertType.WARNING, "Login Fail").show();
         }
     }

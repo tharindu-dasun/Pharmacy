@@ -6,7 +6,8 @@ public class Item {
     private String item_code;
     private String description;
     private String brand;
-    private String M_date;
+  //  private String M_date;
+    private String M_Date;
     private String Ex_Date;
     private int quantity;
 
@@ -14,7 +15,7 @@ public class Item {
         this.item_code = item_code;
         this.description = description;
         this.brand = brand;
-        this.M_date = m_date;
+        this.M_Date = m_date;
         this.Ex_Date = ex_Date;
         this.quantity = quantity;
         this.unit_price = unit_price;
@@ -25,6 +26,7 @@ public class Item {
     public Item() {
 
     }
+
 
     public String getItem_code() {
         return item_code;
@@ -50,12 +52,12 @@ public class Item {
         this.brand = brand;
     }
 
-    public String getM_date() {
-        return M_date;
+    public String getM_Date() {
+        return M_Date;
     }
 
-    public void setM_date(String m_date) {
-        M_date = m_date;
+    public void setM_Date(String m_date) {
+        M_Date = m_date;
     }
 
     public String getEx_Date() {

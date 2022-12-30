@@ -54,10 +54,8 @@ public class PlaceOrderFormController {
     public JFXComboBox cmbCusId;
     public JFXComboBox cmbSpnId;
     public JFXComboBox cmbCashId;
-
-    private double total = 0.00;
-
-
+    private ButtonType txtContact;
+    private int total = 0;
     public void initialize() throws SQLException, ClassNotFoundException {
         loadItemCode();
         loadEmpList();
@@ -68,7 +66,7 @@ public class PlaceOrderFormController {
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colMdate.setCellValueFactory(new PropertyValueFactory<>("M_date"));
+        colMdate.setCellValueFactory(new PropertyValueFactory<>("M_Date"));
         colExDate.setCellValueFactory(new PropertyValueFactory<>("Ex_date"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
     }
@@ -87,7 +85,7 @@ public class PlaceOrderFormController {
                 lblDescription.setText(itemDetails.getDescription());
                 lblUnitPrice.setText(Integer.toString(itemDetails.getUnit_price()));
                 lblQtyOnHand.setText(Integer.toString(itemDetails.getQuantity()));
-                lblMDate.setText(itemDetails.getM_date());
+                lblMDate.setText(itemDetails.getM_Date());
                 lblExDate.setText(itemDetails.getEx_Date());
             }
             if (s.equals("M")) {
@@ -110,8 +108,8 @@ public class PlaceOrderFormController {
         if (cmbSpnIdValue!=null) {
             sponsor_id = cmbSpnIdValue.toString();
         }
-        String employee_id = txtCashierIdd.getText();
-        Object cmbCusIdValue = cmbCusId.getValue();
+        String employee_id = cmbCashId.getValue().toString();
+        String cmbCusIdValue = txtCusId.getText();
         String customer_id = null;
         if (cmbCusIdValue!=null) {
             customer_id = cmbCusIdValue.toString();
@@ -126,7 +124,9 @@ public class PlaceOrderFormController {
 
             CusOrder cusOrder = new CusOrder(order_id, code, sponsor_id, employee_id, customer_id, date, unit_price, quantity);
             try {
+//                CusOrderModel.save_orderDetails(order_id , code ,sponsor_id ,  employee_id , unit_price , quantity);
                 boolean isAdd = CusOrderModel.save(cusOrder);
+                CusOrderModel.updateItemTbl(O.getCode(),O.getQtyOnHand() );
                 if (isAdd) {
                    // new Alert(Alert.AlertType.CONFIRMATION, "Added");
                 }
@@ -150,7 +150,6 @@ public class PlaceOrderFormController {
         }
     }
 
-
     public void SearchOnAction(ActionEvent actionEvent) {
         String customer_id = txtCusId.getText();
         try {
@@ -167,7 +166,9 @@ public class PlaceOrderFormController {
         }
     }
 
-    public void NewCusOnAction(ActionEvent actionEvent) {
+    public void NewCusOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.DASHBOARD, pane);
+        new Alert(Alert.AlertType.INFORMATION, "VisIt Customer Form To Add New Customer").show();
     }
 
     public void txtQtyOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
@@ -181,12 +182,13 @@ public class PlaceOrderFormController {
         orderTableRow.setEx_date(lblExDate.getText());
         int rowTotal = Integer.parseInt(txtQty.getText()) * Integer.parseInt(lblUnitPrice.getText());
         orderTableRow.setTotal(rowTotal);
-        total += rowTotal;
+
+         total += rowTotal;
         txtTotalAmount.setText(Double.toString(total));
         Object cmbSpnIdValue = cmbSpnId.getValue();
         DecimalFormat f = new DecimalFormat("##.00");
         Double discount = 0.00;
-        if (cmbSpnIdValue != null) {
+        if (cmbSpnIdValue != null && cmbCode.getValue().toString().split("")[0].equals("M") ) {
             discount = Double.parseDouble(SponsorModel.search(cmbSpnIdValue.toString()).getDiscount_percentage())/100;
         }
         txtNetAmount.setText((Double.toString(Double.parseDouble(f.format(total*(1-discount))))));
@@ -240,4 +242,6 @@ public class PlaceOrderFormController {
 
     public void cmbSpnOnAction(ActionEvent actionEvent) {
     }
+
+
 }

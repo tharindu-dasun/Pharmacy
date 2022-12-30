@@ -54,7 +54,7 @@ public abstract class Sponsor {
     }
 
     public String getDiscount_percentage() {
-        return discount_percentage;
+        return discount_percentage.split("%")[0];
     }
 
     public void setDiscount_percentage(String discount_percentage) {

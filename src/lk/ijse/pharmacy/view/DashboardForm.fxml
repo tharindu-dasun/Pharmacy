@@ -107,6 +107,19 @@
                   </Text>
                </children>
             </AnchorPane>
+            <JFXButton layoutX="82.0" layoutY="433.0" onAction="#btnViewOrderHistoryOnAction" prefHeight="167.0" prefWidth="272.0" style="-fx-background-radius: 20px; -fx-background-color: #38ada9;" text="Order History" textFill="WHITE">
+               <font>
+                  <Font size="37.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="392.0" layoutY="432.0" onAction="#btnViewSupplierOrderHistoryOnAction" prefHeight="169.0" prefWidth="576.0" style="-fx-background-radius: 20px; -fx-background-color: #38ada9;" text="Supplier Order History" textFill="WHITE">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>

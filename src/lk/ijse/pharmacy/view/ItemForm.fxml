@@ -30,14 +30,14 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" layoutX="61.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Medicine id" />
+      <JFXTextField fx:id="txtId" layoutX="61.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Item id" />
       <Label layoutX="61.0" layoutY="241.0" text="Brand :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <JFXTextField fx:id="txtBrand" layoutX="61.0" layoutY="272.0" prefHeight="34.0" prefWidth="387.0" promptText="Brand" />
-      <JFXTextField fx:id="txtDes" layoutX="561.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Medicine name" />
+      <JFXTextField fx:id="txtDes" layoutX="561.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Item name" />
       <Label layoutX="61.0" layoutY="338.0" text="Manufacture Date :">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -67,10 +67,10 @@
       </Label>
       <TableView fx:id="tblItem" layoutX="60.0" layoutY="518.0" prefHeight="239.0" prefWidth="891.0">
          <columns>
-            <TableColumn fx:id="colId" prefWidth="95.0" text="Item Code" />
-            <TableColumn fx:id="colDes" prefWidth="149.33334350585938" text="Description" />
-            <TableColumn fx:id="colBrand" prefWidth="164.0" text="Brand" />
-            <TableColumn fx:id="colMDate" prefWidth="121.33331298828125" text="M_Date" />
+            <TableColumn fx:id="colId" prefWidth="78.0" text="Item Code" />
+            <TableColumn fx:id="colDes" prefWidth="205.0" text="Description" />
+            <TableColumn fx:id="colBrand" prefWidth="126.0" text="Brand" />
+            <TableColumn fx:id="colMdate" prefWidth="121.33331298828125" text="M_Date" />
             <TableColumn fx:id="colExDate" prefWidth="153.0" text="Ex_Date" />
             <TableColumn fx:id="colQty" prefWidth="109.0" text="Quantity" />
             <TableColumn fx:id="colPrice" prefWidth="104.0" text="Unit Price" />

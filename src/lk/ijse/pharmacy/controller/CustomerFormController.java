@@ -13,8 +13,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.pharmacy.model.CustomerModel;
 import lk.ijse.pharmacy.model.EmployeeModel;
+import lk.ijse.pharmacy.model.SupplierModel;
 import lk.ijse.pharmacy.to.Customer;
 import lk.ijse.pharmacy.to.Employee;
+import lk.ijse.pharmacy.to.Supplier;
 import lk.ijse.pharmacy.util.Navigation;
 import lk.ijse.pharmacy.util.Routes;
 
@@ -49,11 +51,14 @@ public class CustomerFormController {
         String nic = txtNic.getText();
         int contact_no = Integer.parseInt(txtContact.getText());
 
-        Customer customer=new Customer(customer_id,name,address,contact_no,nic);
+        Customer customer = new Customer(customer_id,name,address,contact_no,nic);
         try {
-            boolean isAdd=CustomerModel.save(customer);
-            if (isAdd){
-                new Alert(Alert.AlertType.CONFIRMATION,"Added");
+            boolean add = CustomerModel.save(customer);
+            if (add) {
+                new Alert(Alert.AlertType.INFORMATION, "Added Success").show();
+                setTblCustomer();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Added Fail").show();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

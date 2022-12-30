@@ -14,7 +14,7 @@ public class ItemModel {
                 item.getItem_code(),
                 item.getDescription(),
                 item.getBrand(),
-                item.getM_date(),
+                item.getM_Date(),
                 item.getEx_Date(),
                 item.getQuantity(),
                 item.getUnit_price()
@@ -35,7 +35,7 @@ public class ItemModel {
                 execute("UPDATE item SET description = ? , brand = ? , M_Date = ? , Ex_Date = ? , quantity = ? , unit_price = ? WHERE item_code = ?",
                         item.getDescription(),
                         item.getBrand(),
-                        item.getM_date(),
+                        item.getM_Date(),
                         item.getEx_Date(),
                         item.getQuantity(),
                         item.getUnit_price(),
@@ -46,7 +46,7 @@ public class ItemModel {
     public static Item search(String id) throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("SELECT * FROM item WHERE item_code = ?",id);
         if (rst.next()){
-            return new Item(rst.getString(1),rst.getString(2),rst.getString(3),rst.getString(4),rst.getString(5),rst.getInt(6),rst.getInt(7));
+            return new Item(rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5), rst.getInt(6) , rst.getInt(7));
         }
         return new Item();
     }

@@ -15,5 +15,7 @@ public enum Routes {
     ADMIN ,
     CASHIER ,
     PASSWORD ,
-    SUPPLIER_ORDER
+    SUPPLIER_ORDER,
+    ORDER_HISTORY,
+    SUPPLIER_ORDER_HISTORY
 }

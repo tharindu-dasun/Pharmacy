@@ -1,6 +1,6 @@
 package lk.ijse.pharmacy.to;
 
-public class SupOrder {
+public class SupOrder extends OrderTable {
     private String code;
     private String description;
     private int unitPrice;

@@ -10,12 +10,14 @@ import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.pharmacy.model.CustomerModel;
 import lk.ijse.pharmacy.model.EmployeeModel;
 import lk.ijse.pharmacy.model.MedicineModel;
 import lk.ijse.pharmacy.to.Customer;
 import lk.ijse.pharmacy.to.Employee;
 import lk.ijse.pharmacy.to.Medicines;
+import lk.ijse.pharmacy.util.RegExPatterns;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -172,5 +174,17 @@ public class MedicineFormController {
 
     public void tblMedicineOnAction(SortEvent<TableView> tableViewSortEvent) {
 
+    }
+
+    public void validMediCode(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getMedicinePattern().matcher(txtMediId.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveMedi.setDisable(true);
+            btnUpdateMedi.setDisable(true);
+        }else {
+            btnSaveMedi.setDisable(false);
+            btnUpdateMedi.setDisable(false);
+        }
     }
 }

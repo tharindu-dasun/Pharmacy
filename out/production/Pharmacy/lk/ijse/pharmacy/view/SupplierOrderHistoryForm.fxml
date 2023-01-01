@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="770.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pharmacy.controller.SupplierOrderHistoryFormController">
    <children>
       <AnchorPane prefHeight="125.0" prefWidth="1008.0" style="-fx-background-color: #dfe6e9;" />
@@ -17,12 +16,6 @@
             <Font size="52.0" />
          </font>
       </Text>
-      <TableView layoutX="75.0" layoutY="156.0" prefHeight="447.0" prefWidth="859.0">
-         <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
-         </columns>
-      </TableView>
       <JFXButton fx:id="reportOrderHistory" layoutX="437.0" layoutY="657.0" onAction="#orderHistoryOnAction" prefHeight="68.0" prefWidth="159.0" style="-fx-background-color: #2ecc71;" text="Print Report">
          <font>
             <Font size="20.0" />
@@ -31,5 +24,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <TableView fx:id="tblSupOrder" layoutX="85.0" layoutY="166.0" prefHeight="447.0" prefWidth="859.0">
+         <columns>
+            <TableColumn fx:id="ColId" prefWidth="135.6666717529297" text="Order ID" />
+            <TableColumn fx:id="ColItemCode" prefWidth="153.0" text="Item Code" />
+            <TableColumn fx:id="ColMediCode" prefWidth="145.0" text="Medi Code" />
+            <TableColumn fx:id="ColEmpId" prefWidth="139.0" text="Employee ID" />
+            <TableColumn fx:id="ColUnitPrice" prefWidth="147.66668701171875" text="Unit Price" />
+            <TableColumn fx:id="ColQty" prefWidth="142.33331298828125" text="Quantity" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

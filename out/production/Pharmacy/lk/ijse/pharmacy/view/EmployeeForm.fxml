@@ -42,7 +42,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtEmpId" layoutX="66.0" layoutY="183.0" prefHeight="34.0" prefWidth="384.0" promptText="Employee id" />
+      <JFXTextField fx:id="txtEmpId" layoutX="66.0" layoutY="183.0" onKeyReleased="#validEmpId" prefHeight="34.0" prefWidth="384.0" promptText="Employee id" />
       <Label layoutX="66.0" layoutY="255.0" text="Employee Address :">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -65,13 +65,13 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtEmpNic" layoutX="65.0" layoutY="386.0" prefHeight="34.0" prefWidth="387.0" promptText="NIC" />
+      <JFXTextField fx:id="txtEmpNic" layoutX="65.0" layoutY="386.0" onKeyReleased="#validetId" prefHeight="34.0" prefWidth="387.0" promptText="NIC" />
       <Label layoutX="566.0" layoutY="356.0" text="Contact Number :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtNo" layoutX="566.0" layoutY="387.0" prefHeight="34.0" prefWidth="387.0" promptText="Contact number " />
+      <JFXTextField fx:id="txtNo" layoutX="566.0" layoutY="387.0" onKeyReleased="#validetNo" prefHeight="34.0" prefWidth="387.0" promptText="Contact number " />
       <JFXButton fx:id="btnSaveEmployee" layoutX="618.0" layoutY="451.0" onAction="#SaveEmployeeOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #00b894; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
          <font>
             <Font size="17.0" />

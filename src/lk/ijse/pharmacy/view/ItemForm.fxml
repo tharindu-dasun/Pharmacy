@@ -30,7 +30,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtId" layoutX="61.0" layoutY="175.0" prefHeight="34.0" prefWidth="387.0" promptText="Item id" />
+      <JFXTextField fx:id="txtId" layoutX="61.0" layoutY="175.0" onKeyReleased="#validItemCode" prefHeight="34.0" prefWidth="387.0" promptText="Item id" />
       <Label layoutX="61.0" layoutY="241.0" text="Brand :">
          <font>
             <Font name="System Bold" size="18.0" />

@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.pharmacy.model.CustomerModel;
@@ -18,6 +19,7 @@ import lk.ijse.pharmacy.to.Customer;
 import lk.ijse.pharmacy.to.Employee;
 import lk.ijse.pharmacy.to.Supplier;
 import lk.ijse.pharmacy.util.Navigation;
+import lk.ijse.pharmacy.util.RegExPatterns;
 import lk.ijse.pharmacy.util.Routes;
 
 import java.io.IOException;
@@ -142,6 +144,42 @@ public class CustomerFormController {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void validetNo(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getMobilePattern().matcher(txtContact.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveCus.setDisable(true);
+            btnUpdateCus.setDisable(true);
+        }else {
+            btnSaveCus.setDisable(false);
+            btnUpdateCus.setDisable(false);
+        }
+    }
+
+    public void validetId(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getIdPattern().matcher(txtNic.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveCus.setDisable(true);
+            btnUpdateCus.setDisable(true);
+        }else {
+            btnSaveCus.setDisable(false);
+            btnUpdateCus.setDisable(false);
+        }
+    }
+
+    public void validCusId(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getCustomerPattern().matcher(txtCusId.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveCus.setDisable(true);
+            btnUpdateCus.setDisable(true);
+        }else {
+            btnSaveCus.setDisable(false);
+            btnUpdateCus.setDisable(false);
         }
     }
 }

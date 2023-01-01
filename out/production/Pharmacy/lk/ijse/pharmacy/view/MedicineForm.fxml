@@ -39,7 +39,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtMediId" layoutX="66.0" layoutY="186.0" prefHeight="34.0" prefWidth="387.0" promptText="Medicine id" />
+      <JFXTextField fx:id="txtMediId" layoutX="66.0" layoutY="186.0" onKeyReleased="#validMediCode" prefHeight="34.0" prefWidth="387.0" promptText="Medicine id" />
       <Label layoutX="66.0" layoutY="252.0" text="Brand :">
          <font>
             <Font name="System Bold" size="18.0" />

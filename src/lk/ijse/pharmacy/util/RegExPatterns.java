@@ -7,6 +7,18 @@ public class RegExPatterns {
         private static Pattern namePattern = Pattern.compile("^[a-zA-Z '.-]{4,}$");
         private static Pattern sponsorPattern = Pattern.compile("[SP]+[0-9]{1,}");
 
+        public static void setItemPattern(Pattern itemPattern) {
+                RegExPatterns.itemPattern = itemPattern;
+        }
+
+        private static Pattern itemPattern = Pattern.compile("[I]+[0-9]{1,}");
+
+        public static void setMedicinePattern(Pattern medicinePattern) {
+                RegExPatterns.medicinePattern = medicinePattern;
+        }
+
+        private static Pattern medicinePattern = Pattern.compile("[M]+[0-9]{1,}");
+
         public static Pattern getSponsorPattern() {
                 return sponsorPattern;
         }
@@ -29,13 +41,13 @@ public class RegExPatterns {
                 return supplierPattern;
         }
 
-        private static Pattern medicinePattern = Pattern.compile("[M]+[0-9]{1,}");
+    //    private static Pattern medicinePattern = Pattern.compile("[M]+[0-9]{1,}");
 
         public static Pattern getMedicinePattern() {
                 return medicinePattern;
         }
 
-        private static Pattern itemPattern = Pattern.compile("[I]+[0-9]{1,}");
+   //     private static Pattern itemPattern = Pattern.compile("[I]+[0-9]{1,}");
 
         public static Pattern getItemPattern() {
                 return itemPattern;

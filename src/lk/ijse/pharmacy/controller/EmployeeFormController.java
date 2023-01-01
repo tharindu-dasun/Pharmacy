@@ -12,10 +12,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.pharmacy.model.CustomerModel;
 import lk.ijse.pharmacy.model.EmployeeModel;
 import lk.ijse.pharmacy.to.Customer;
 import lk.ijse.pharmacy.to.Employee;
+import lk.ijse.pharmacy.util.RegExPatterns;
 
 import java.lang.reflect.Array;
 import java.net.URL;
@@ -167,6 +169,42 @@ public class EmployeeFormController {
         for (String s : roleList) {
             observableList.add(s);
             cmbRole.setItems(observableList);
+        }
+    }
+
+    public void validetId(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getIdPattern().matcher(txtEmpNic.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveEmployee.setDisable(true);
+            btnUpdateEmployee.setDisable(true);
+        }else {
+            btnSaveEmployee.setDisable(false);
+            btnUpdateEmployee.setDisable(false);
+        }
+    }
+
+    public void validetNo(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getMobilePattern().matcher(txtNo.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveEmployee.setDisable(true);
+            btnUpdateEmployee.setDisable(true);
+        }else {
+            btnSaveEmployee.setDisable(false);
+            btnUpdateEmployee.setDisable(false);
+        }
+    }
+
+    public void validEmpId(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getEmployeePattern().matcher(txtEmpId.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveEmployee.setDisable(true);
+            btnUpdateEmployee.setDisable(true);
+        }else {
+            btnSaveEmployee.setDisable(false);
+            btnUpdateEmployee.setDisable(false);
         }
     }
 }

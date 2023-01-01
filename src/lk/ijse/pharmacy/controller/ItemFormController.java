@@ -9,12 +9,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.pharmacy.model.EmployeeModel;
 import lk.ijse.pharmacy.model.ItemModel;
 import lk.ijse.pharmacy.model.MedicineModel;
 import lk.ijse.pharmacy.to.Employee;
 import lk.ijse.pharmacy.to.Item;
 import lk.ijse.pharmacy.to.Medicines;
+import lk.ijse.pharmacy.util.RegExPatterns;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -162,6 +164,18 @@ public class ItemFormController {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void validItemCode(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getItemPattern().matcher(txtId.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveItem.setDisable(true);
+            btnUpdateItem.setDisable(true);
+        }else {
+            btnSaveItem.setDisable(false);
+            btnUpdateItem.setDisable(false);
         }
     }
 }

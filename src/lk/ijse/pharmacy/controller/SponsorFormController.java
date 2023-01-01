@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import lk.ijse.pharmacy.model.EmployeeModel;
 import lk.ijse.pharmacy.model.SponsorModel;
@@ -218,39 +219,41 @@ public class SponsorFormController {
     }
 
     public void spnIdOnAction(ActionEvent actionEvent) {
-//        if(RegExPatterns.getSponsorPattern().matcher(txtSpnId.getText()).matches()){
-//
-//        }else{
-//            txtSpnId.setFocusColor(Color.RED);
-//        }
+
+    }
+    public void validetEmail(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getEmailPattern().matcher(txtSpnEmail.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveSponsor.setDisable(true);
+            btnUpdateSponsor.setDisable(true);
+        }else {
+            btnSaveSponsor.setDisable(false);
+            btnUpdateSponsor.setDisable(false);
+        }
     }
 
-//    public void UpdateSponsorOnAction(ActionEvent actionEvent) {
-//        String sponsor_id = txtSpnId.getText();
-//        String name = txtSpnName.getText();
-//        int contact_no = Integer.parseInt(txtSpnNo.getText());
-//        String Email = txtSpnEmail.getText();
-//        String discount_percentage = txtSpnDis.getText();
-//        String Type = cmbSpnType.getValue().toString();
-//
-//        Sponsor sponsor = new Sponsor(sponsor_id, name, contact_no, Email, discount_percentage, Type) {
-//            @Override
-//            public Object get() {
-//                return null;
-//            }
-//        };
-//        try {
-//            boolean add = SponsorModel.update(sponsor);
-//            if (add) {
-//                new Alert(Alert.AlertType.INFORMATION, "Update Success").show();
-//                setTblSponsor();
-//            } else {
-//                new Alert(Alert.AlertType.WARNING, "Update Fail").show();
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public void validetNo(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getMobilePattern().matcher(txtSpnNo.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveSponsor.setDisable(true);
+            btnUpdateSponsor.setDisable(true);
+        }else {
+            btnSaveSponsor.setDisable(false);
+            btnUpdateSponsor.setDisable(false);
+        }
+    }
+
+    public void validSpnId(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getSponsorPattern().matcher(txtSpnId.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveSponsor.setDisable(true);
+            btnUpdateSponsor.setDisable(true);
+        }else {
+            btnSaveSponsor.setDisable(false);
+            btnUpdateSponsor.setDisable(false);
+        }
+    }
 }

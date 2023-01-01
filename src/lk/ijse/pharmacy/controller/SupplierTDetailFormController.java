@@ -50,6 +50,8 @@ public class SupplierTDetailFormController {
     public Label lblRole;
     public JFXTextField txtTotalAmount;
     private String employee_id;
+    private int total = 0;
+
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
 
@@ -63,7 +65,27 @@ public class SupplierTDetailFormController {
 //    }
 
     public void txtQtyOnAction(ActionEvent actionEvent) {
+        ArrayList<SupOrder> items = new ArrayList<>();
+        SupOrder supOrderRow = new SupOrder();
+        supOrderRow.setCode(cmbCode.getValue().toString());
+        supOrderRow.setDescription(lblDescription.getText());
+        supOrderRow.setUnitPrice(Integer.parseInt(lblUnitPrice.getText()));
+        supOrderRow.setQuantity(Integer.parseInt(txtQty.getText()));
+        int rowTotal = Integer.parseInt(txtQty.getText()) * Integer.parseInt(lblUnitPrice.getText());
+        supOrderRow.setTotal(rowTotal);
 
+        total += rowTotal;
+        txtTotalAmount.setText(Double.toString(total));
+
+        DecimalFormat f = new DecimalFormat("##.00");
+
+        items.add(supOrderRow);
+        ObservableList<SupOrder> observableArrayList = tblOrderCart.getItems();
+        for (SupOrder i : items) {
+            observableArrayList.add(i);
+            tblOrderCart.setItems(observableArrayList);
+        }
+        ClearItemData();
     }
 
     public void cmbCashOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
@@ -103,7 +125,7 @@ public class SupplierTDetailFormController {
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
 //        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
-        colOrderQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
+        colOrderQty.setCellValueFactory(new PropertyValueFactory<>("OrderQty"));
         colAmount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
     }
 

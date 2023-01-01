@@ -11,12 +11,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.pharmacy.model.CustomerModel;
 import lk.ijse.pharmacy.model.SupplierModel;
 import lk.ijse.pharmacy.to.Supplier;
+import lk.ijse.pharmacy.util.RegExPatterns;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
 
 
 public class SupplierFormController {
@@ -169,6 +172,42 @@ public class SupplierFormController {
         for (String s : agreementList) {
             observableList.add(s);
             cmbAgreement.setItems(observableList);
+        }
+    }
+
+    public void validetEmail(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getEmailPattern().matcher(txtSupEmail.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveSupplier.setDisable(true);
+            btnUpdateSupplier.setDisable(true);
+        }else {
+            btnSaveSupplier.setDisable(false);
+            btnUpdateSupplier.setDisable(false);
+        }
+    }
+
+    public void validetNo(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getMobilePattern().matcher(txtNo.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveSupplier.setDisable(true);
+            btnUpdateSupplier.setDisable(true);
+        }else {
+            btnSaveSupplier.setDisable(false);
+            btnUpdateSupplier.setDisable(false);
+        }
+    }
+
+    public void validSupId(KeyEvent keyEvent) {
+        boolean matches = RegExPatterns.getSupplierPattern().matcher(txtSupId.getText()).matches();
+        if (!matches){
+//            txtSupEmail.getFocusColor(red);
+            btnSaveSupplier.setDisable(true);
+            btnUpdateSupplier.setDisable(true);
+        }else {
+            btnSaveSupplier.setDisable(false);
+            btnUpdateSupplier.setDisable(false);
         }
     }
 }

@@ -28,7 +28,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSpnId" layoutX="60.0" layoutY="184.0" onAction="#spnIdOnAction" prefHeight="34.0" prefWidth="387.0" promptText="Sponsor id" />
+      <JFXTextField fx:id="txtSpnId" layoutX="60.0" layoutY="184.0" onAction="#spnIdOnAction" onKeyReleased="#validSpnId" prefHeight="34.0" prefWidth="387.0" promptText="Sponsor id" />
       <Label layoutX="60.0" layoutY="260.0" text="Sponsor type :">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -50,13 +50,13 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSpnEmail" layoutX="59.0" layoutY="394.0" prefHeight="34.0" prefWidth="387.0" promptText="Email" />
+      <JFXTextField fx:id="txtSpnEmail" layoutX="59.0" layoutY="394.0" onKeyReleased="#validetEmail" prefHeight="34.0" prefWidth="387.0" promptText="Email" />
       <Label layoutX="560.0" layoutY="364.0" text="Contact Number :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSpnNo" layoutX="560.0" layoutY="395.0" prefHeight="34.0" prefWidth="387.0" promptText="Contact number " />
+      <JFXTextField fx:id="txtSpnNo" layoutX="560.0" layoutY="395.0" onKeyReleased="#validetNo" prefHeight="34.0" prefWidth="387.0" promptText="Contact number " />
       <TableView fx:id="tblSponsor" layoutX="56.0" layoutY="510.0" prefHeight="245.0" prefWidth="898.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="95.0" text="ID" />

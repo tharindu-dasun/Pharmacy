@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtCusId" layoutX="56.0" layoutY="180.0" prefHeight="34.0" prefWidth="387.0" promptText="Customer id" />
+            <JFXTextField fx:id="txtCusId" layoutX="56.0" layoutY="180.0" onKeyReleased="#validCusId" prefHeight="34.0" prefWidth="387.0" promptText="Customer id" />
             <Label layoutX="56.0" layoutY="256.0" text="Customer Address :">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -37,13 +37,13 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtNic" layoutX="556.0" layoutY="287.0" prefHeight="34.0" prefWidth="387.0" promptText="NIC" />
+            <JFXTextField fx:id="txtNic" layoutX="556.0" layoutY="287.0" onKeyReleased="#validetId" prefHeight="34.0" prefWidth="387.0" promptText="NIC" />
             <Label layoutX="55.0" layoutY="359.0" text="Contact Number :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtContact" layoutX="55.0" layoutY="390.0" prefHeight="34.0" prefWidth="387.0" promptText="Contact number :" />
+            <JFXTextField fx:id="txtContact" layoutX="55.0" layoutY="390.0" onKeyReleased="#validetNo" prefHeight="34.0" prefWidth="387.0" promptText="Contact number :" />
             <TableView fx:id="tblCustomer" layoutX="55.0" layoutY="462.0" prefHeight="292.0" prefWidth="898.0">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="95.0" text="ID" />
